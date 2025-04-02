@@ -10,7 +10,7 @@ public interface ICommand : ICommand<Unit>
 
 
 
-public interface ICommand<out TRespnse> : IRequest<TRespnse>
+public interface ICommand<out TResponse> : IRequest<TResponse>
 {
 
 }
