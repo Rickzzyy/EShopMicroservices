@@ -14,7 +14,7 @@ public class GetBasketQueryHandler(IBasketRepository repository)
     {
        
         var basket = await repository.GetBasket(query.UserName);
-        return new GetBasketResult(new ShoppingCart("swn"));
+        return new GetBasketResult(basket);
 
     }
 }
