@@ -13,7 +13,7 @@ service DiscountProtoService {
 }
 
 message GetDiscountRequest {
-	int32 productName = 1;
+	string productName = 1;
 }
 
 message CouponModel {
