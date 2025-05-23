@@ -1,5 +1,5 @@
-using Discount.Grpc;
 using BuildingBlocks.Messaging.MassTransit;
+using Discount.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
 
