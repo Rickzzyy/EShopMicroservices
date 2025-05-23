@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BuildingBlocks.Behaviors;
 
-public class ValidationBehavior<TRequest, TResponse> 
+public class ValidationBehavior<TRequest, TResponse>
     (IEnumerable<IValidator<TRequest>> validators)
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ICommand<TResponse>
@@ -17,7 +17,7 @@ public class ValidationBehavior<TRequest, TResponse>
             validators.Select(v => v.ValidateAsync(context, cancellationToken)));
 
         var failures =
-            validationResults            
+            validationResults
                 .Where(r => r.Errors.Any())
                 .SelectMany(r => r.Errors)
                 .ToList();

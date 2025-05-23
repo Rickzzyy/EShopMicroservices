@@ -7,7 +7,7 @@ public class CatalogInitialData : IInitialData
     {
         using var session = store.LightweightSession();
 
-        if(await session.Query<Product>().AnyAsync())
+        if (await session.Query<Product>().AnyAsync())
             return;
 
         //Marten UPSERT will cater for exiting revords
