@@ -1,5 +1,4 @@
 ﻿namespace Ordering.Domain.Models;
-
 public class Customer : Entity<CustomerId>
 {
     public string Name { get; private set; } = default!;
@@ -16,6 +15,7 @@ public class Customer : Entity<CustomerId>
             Name = name,
             Email = email
         };
+
         return customer;
     }
 }

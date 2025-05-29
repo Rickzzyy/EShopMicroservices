@@ -1,6 +1,7 @@
 ﻿using Marten.Schema;
 
 namespace Catalog.API.Data;
+
 public class CatalogInitialData : IInitialData
 {
     public async Task Populate(IDocumentStore store, CancellationToken cancellation)
@@ -10,10 +11,11 @@ public class CatalogInitialData : IInitialData
         if (await session.Query<Product>().AnyAsync())
             return;
 
-        //Marten UPSERT will cater for exiting revords
+        // Marten UPSERT will cater for existing records
         session.Store<Product>(GetPreconfiguredProducts());
         await session.SaveChangesAsync();
     }
+
     private static IEnumerable<Product> GetPreconfiguredProducts() => new List<Product>()
             {
                 new Product()
@@ -80,4 +82,5 @@ public class CatalogInitialData : IInitialData
                     Category = new List<string> { "Camera" }
                 }
             };
+
 }

@@ -1,6 +1,5 @@
 ﻿namespace Ordering.Domain.ValueObjects;
-
-public class Payment
+public record Payment
 {
     public string? CardName { get; } = default!;
     public string CardNumber { get; } = default!;

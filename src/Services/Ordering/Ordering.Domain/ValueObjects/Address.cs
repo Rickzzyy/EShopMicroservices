@@ -1,5 +1,4 @@
 ﻿namespace Ordering.Domain.ValueObjects;
-
 public record Address
 {
     public string FirstName { get; } = default!;
@@ -9,7 +8,6 @@ public record Address
     public string Country { get; } = default!;
     public string State { get; } = default!;
     public string ZipCode { get; } = default!;
-
     protected Address()
     {
     }

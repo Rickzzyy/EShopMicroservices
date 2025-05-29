@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace BuildingBlocks.Exceptions.Handler;
-
 public class CustomExceptionHandler
     (ILogger<CustomExceptionHandler> logger)
     : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext context, Exception exception, CancellationToken cancellationToken)
     {
-        logger.LogError("Error Message: {exceptionMessage}, Time of occurrence {time}",
+        logger.LogError(
+            "Error Message: {exceptionMessage}, Time of occurrence {time}",
             exception.Message, DateTime.UtcNow);
 
         (string Detail, string Title, int StatusCode) details = exception switch
@@ -54,7 +54,7 @@ public class CustomExceptionHandler
             Title = details.Title,
             Detail = details.Detail,
             Status = details.StatusCode,
-            Instance = context.Request.Path,
+            Instance = context.Request.Path
         };
 
         problemDetails.Extensions.Add("traceId", context.TraceIdentifier);
@@ -66,6 +66,5 @@ public class CustomExceptionHandler
 
         await context.Response.WriteAsJsonAsync(problemDetails, cancellationToken: cancellationToken);
         return true;
-
     }
 }

@@ -22,7 +22,7 @@ public class UpdateOrderHandler(IApplicationDbContext dbContext)
         dbContext.Orders.Update(order);
         await dbContext.SaveChangesAsync(cancellationToken);
 
-        return new UpdateOrderResult(true);
+        return new UpdateOrderResult(true);        
     }
 
     public void UpdateOrderWithNewValues(Order order, OrderDto orderDto)

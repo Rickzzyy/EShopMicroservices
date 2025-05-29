@@ -9,6 +9,7 @@ public class BasketCheckoutEventHandler
 {
     public async Task Consume(ConsumeContext<BasketCheckoutEvent> context)
     {
+        // TODO: Create new order and start order fullfillment process
         logger.LogInformation("Integration Event handled: {IntegrationEvent}", context.Message.GetType().Name);
 
         var command = MapToCreateOrderCommand(context.Message);
@@ -17,6 +18,7 @@ public class BasketCheckoutEventHandler
 
     private CreateOrderCommand MapToCreateOrderCommand(BasketCheckoutEvent message)
     {
+        // Create full order with incoming event data
         var addressDto = new AddressDto(message.FirstName, message.LastName, message.EmailAddress, message.AddressLine, message.Country, message.State, message.ZipCode);
         var paymentDto = new PaymentDto(message.CardName, message.CardNumber, message.Expiration, message.CVV, message.PaymentMethod);
         var orderId = Guid.NewGuid();

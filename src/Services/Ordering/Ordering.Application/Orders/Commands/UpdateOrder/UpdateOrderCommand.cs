@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using BuildingBlocks.CQRS;
+using FluentValidation;
+using Ordering.Application.Dtos;
 
 namespace Ordering.Application.Orders.Commands.UpdateOrder;
 public record UpdateOrderCommand(OrderDto Order)
@@ -15,3 +17,4 @@ public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
         RuleFor(x => x.Order.CustomerId).NotNull().WithMessage("CustomerId is required");
     }
 }
+

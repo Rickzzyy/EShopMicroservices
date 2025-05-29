@@ -1,10 +1,14 @@
-﻿namespace Basket.API.Basket.CheckoutBasket;
+﻿
+using BuildingBlocks.Messaging.Events;
+using MassTransit;
 
-public record CheckoutBasketCommand(BasketCheckoutDto BasketCheckoutDto)
+namespace Basket.API.Basket.CheckoutBasket;
+
+public record CheckoutBasketCommand(BasketCheckoutDto BasketCheckoutDto) 
     : ICommand<CheckoutBasketResult>;
 public record CheckoutBasketResult(bool IsSuccess);
 
-public class CheckoutBasketCommandValidator
+public class CheckoutBasketCommandValidator 
     : AbstractValidator<CheckoutBasketCommand>
 {
     public CheckoutBasketCommandValidator()

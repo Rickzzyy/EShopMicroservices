@@ -9,11 +9,12 @@ namespace Discount.Grpc.Services;
 public class DiscountService
     (DiscountContext dbContext, ILogger<DiscountService> logger)
     : DiscountProtoService.DiscountProtoServiceBase
-{
+{    
     public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
     {
         var coupon = await dbContext
-           .Coupons.FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
+            .Coupons
+            .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
 
         if (coupon is null)
             coupon = new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
@@ -38,6 +39,8 @@ public class DiscountService
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
     }
+
+
     public override async Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
     {
         var coupon = request.Coupon.Adapt<Coupon>();
@@ -52,11 +55,12 @@ public class DiscountService
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
     }
+
     public override async Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
     {
         var coupon = await dbContext
-             .Coupons
-             .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
+            .Coupons
+            .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
 
         if (coupon is null)
             throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} is not found."));
