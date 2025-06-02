@@ -16,7 +16,7 @@ This project is a comprehensive implementation of a **microservices architecture
 - **API Gateway** with Yarp
 - **Docker-based** development and deployment
 - **Clean separation of concerns** (Domain, Application, Infrastructure, API layers)
-- Integration with **PostgreSQL**, **Redis**, **MSSQL**
+- Integration with **PostgreSQL**, **Redis**, **MSSQL**, **SQLite**
 
 ---
 
@@ -36,7 +36,7 @@ This project is a comprehensive implementation of a **microservices architecture
 
 - **.NET 8**, **ASP.NET Core**
 - **Entity Framework Core**, **Dapper**
-- **PostgreSQL**, **Redis**, **MSSQL**
+- **PostgreSQL**, **Redis**, **MSSQL**, **SQLite**
 - **RabbitMQ** for asynchronous communication
 - **MediatR** for CQRS & request/response handling
 - **AutoMapper**, **FluentValidation**
@@ -44,7 +44,10 @@ This project is a comprehensive implementation of a **microservices architecture
 - **Serilog** for structured logging
 - **Docker / Docker Compose**
 - **Yarp API Gateway**
+- **MassTransit**
 - **gRPC** (for service-to-service calls)
+- **ASP.NET Razor**
+- **Carter**
 
 ---
 
