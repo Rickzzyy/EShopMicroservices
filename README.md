@@ -22,13 +22,13 @@ This project is a comprehensive implementation of a **microservices architecture
 
 ## 📂 Microservices Overview
 
-| Service             | Description                         | Port       |
-|---------------------|-------------------------------------|------------|
-| Basket.API          | Shopping cart operations            | 8004       |
-| Catalog.API         | Product catalog & search            | 8001       |
-| Discount.API        | Discounts and promotions (gRPC)     | 8003       |
-| Ordering.API        | Order management                    | 8005       |
-| Yarp Gateway        | Unified entry point for APIs        | 8010       |
+| Service             | Description                         |
+|---------------------|-------------------------------------|
+| Basket.API          | Shopping cart operations            |
+| Catalog.API         | Product catalog & search            |
+| Discount.API        | Discounts and promotions (gRPC)     |
+| Ordering.API        | Order management                    |
+| Yarp Gateway        | Unified entry point for APIs        |
 
 ---
 
